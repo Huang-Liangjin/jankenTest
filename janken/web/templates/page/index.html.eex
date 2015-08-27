@@ -1,36 +1,43 @@
-<div class="jumbotron">
-  <h2>Welcome to Phoenix!</h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
+  <div class="jyanken-wrapper" data-settings='{"firstTime": false, "playable": false, "result": true, "detailResults": [false, false, false], "point": 20000}'>
+    <!-- Welcom Scence -->
+    <div class="game-scene welcome-scene">
+      <h1>じゃんけんへようこそ〜</h1>
+      <ul class="basic-rules">
+        <li>じゃんけんをするよ</li>
+        <li>3回勝負の内2回勝利で1ポイント獲得</li>
+        <li>7回参加するともれなく1ポイント獲得</li>
+        <li>1日1回の参加が可能</li>
+      </ul>
+      <a class="button start-btn" href="javascript:void(0);">スタート</a>
+    </div>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="http://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
+    <!-- Jyanken Scene -->
+    <div class="game-scene jyanken-scene">
+      <div class="description-popup">
+      </div>
+      <div class="enemy">
+        <img src="<%= static_path(@conn, "/images/lovelydog.jpg") %>">
+        <div class="enemy-hand">???</div>
+      </div>
+      <div class="user-hands">
+        <a class="user-hand" href="javascript:void(0);" data-hand="0">パー</a>
+        <a class="user-hand" href="javascript:void(0);" data-hand="1">チョキ</a>
+        <a class="user-hand" href="javascript:void(0);" data-hand="2">グー</a>
+      </ul>
+    </div>
   </div>
 
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
+  <!-- Result Scene -->
+  <div class="game-scene result-scene">
+    <h1 class="jyanken-result">You Win!</h1>
+    <a class="button continue-btn" href="javascript:void(0);">次へ</a>
   </div>
-</div>
+
+  <!-- Point Scene -->
+  <div class="game-scene point-scene">
+    <h2 class="point-speech"></h2>
+    <h3 class="point-result"></h3>
+  </div>
+  <script type="text/javascript" src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  <script type="text/javascript" src="<%= static_path(@conn, "/js/jquery.min.js") %>"></script>
+  <script type="text/javascript" src="<%= static_path(@conn, "/js/script.js") %>"></script>
